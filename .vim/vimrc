@@ -1,0 +1,44 @@
+
+set mouse=a
+set encoding=utf-8
+set autochdir
+
+set foldmethod=indent
+set foldlevel=99
+
+set scrolloff=5
+
+let mapleader=" "
+
+syntax on
+set number
+set relativenumber
+set wrap
+set showcmd
+set wildmenu
+
+set hlsearch
+set incsearch
+exec "nohlsearch"
+set ignorecase
+set smartcase
+noremap <LEADER><CR> :nohlsearch<CR>
+
+map ; :
+map R :source ~/.vim/vimrc<CR>
+map S :w<CR>
+map Q :q<CR>
+
+map s <nop>
+map sl :set splitright<CR>:vsplit<CR>
+map sh :set nosplitright<CR>:vsplit<CR>
+map sk :set nosplitbelow<CR>:split<CR>
+map sj :set splitbelow<CR>:split<CR>
+
+map <LEADER>l <C-w>l
+map <LEADER>h <C-w>h
+map <LEADER>k <C-w>k
+map <LEADER>j <C-w>j
+
+" set what <BS> key can do
+set backspace=indent,eol,start
