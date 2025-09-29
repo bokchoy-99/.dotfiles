@@ -88,3 +88,23 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+# === Secure Execution of WSL Route Fix Script ===
+WSL_FIX_SCRIPT="/etc/wsl_route_fix.sh"
+
+if [ -f "$WSL_FIX_SCRIPT" ]; then
+    # Script exists, execute and silence error output
+    sudo "$WSL_FIX_SCRIPT" 2>/dev/null
+
+    # Check the exit status of the previous command
+    if [ $? -eq 0 ]; then
+        echo "[WSL Route Fix] Successfully executed $WSL_FIX_SCRIPT"
+    else
+        echo "[WSL Route Fix] Execution of $WSL_FIX_SCRIPT failed (might require root permissions)"
+    fi
+else
+    # Script does not exist, print log
+    echo "[WSL Route Fix] Skipped: Script $WSL_FIX_SCRIPT does not exist"
+fi
+# ================================================
+
